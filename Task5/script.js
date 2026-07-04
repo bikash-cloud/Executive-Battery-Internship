@@ -1,21 +1,31 @@
 const cards = document.querySelectorAll(".card");
-const architectureBlocks = document.querySelectorAll(".architecture div");
-const statusBoxes = document.querySelectorAll(".status-box span");
+const steps = document.querySelectorAll(".step");
+const techItems = document.querySelectorAll(".tech-grid div");
 
-function addHoverEffect(elements, hoverColor, normalColor) {
-  elements.forEach(element => {
-    element.addEventListener("mouseenter", () => {
-      element.style.background = hoverColor;
+function hoverEffect(elements) {
+  elements.forEach(item => {
+    item.addEventListener("mouseenter", () => {
+      item.style.transform = "translateY(-8px)";
     });
 
-    element.addEventListener("mouseleave", () => {
-      element.style.background = normalColor;
+    item.addEventListener("mouseleave", () => {
+      item.style.transform = "translateY(0)";
     });
   });
 }
 
-addHoverEffect(cards, "#334155", "#1e293b");
-addHoverEffect(architectureBlocks, "#334155", "#1e293b");
-addHoverEffect(statusBoxes, "#334155", "#1e293b");
+hoverEffect(cards);
+hoverEffect(steps);
+hoverEffect(techItems);
 
-console.log("Intelligent Embedded HMI Website Loaded Successfully");
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector("nav");
+
+  if (window.scrollY > 50) {
+    nav.style.boxShadow = "0 5px 25px rgba(0, 217, 255, 0.15)";
+  } else {
+    nav.style.boxShadow = "none";
+  }
+});
+
+console.log("Intelligent Cloud Telemetry Architecture Website Loaded Successfully");
