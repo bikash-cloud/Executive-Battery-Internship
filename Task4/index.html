@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-Driven Safety Protection Kernel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+
+<nav>
+
+<h2>🛡️ Event-Driven Safety Protection Kernel</h2>
+
+<div>
+
+<a href="https://github.com/bikash-cloud/Event-Driven-Safety-Protection-Kernel" target="_blank">
+GitHub
+</a>
+
+</div>
+
+</nav>
+
+<div class="hero-content">
+
+<h1>
+Automotive Grade Event-Driven Safety Protection Kernel
+</h1>
+
+<p>
+
+A fully non-blocking ESP32 safety controller designed for intelligent battery
+protection using an event-driven architecture. The system continuously monitors
+battery conditions, detects faults, controls relay isolation, buzzer alerts,
+and LCD warning messages while using only millis()-based timing without any
+delay() functions.
+
+</p>
+
+<div class="buttons">
+
+<a href="https://wokwi.com/projects/468363122006386689" target="_blank">
+▶ View Wokwi Simulation
+</a>
+
+<a href="https://github.com/bikash-cloud/Event-Driven-Safety-Protection-Kernel" target="_blank">
+💻 View Source Code
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<section class="section">
+
+<h2>Project Overview</h2>
+
+<p>
+
+The Event-Driven Safety Protection Kernel is an embedded safety controller
+built on ESP32 for automotive battery protection. The controller operates
+entirely without delay() by using a millis()-based scheduler. It continuously
+monitors four battery cells and detects abnormal operating conditions including
+weak cells, over-voltage, sensor failures, and rapid voltage spikes. Upon fault
+detection it performs safe relay isolation, activates audible alarms, displays
+warning messages on the LCD, and automatically restores normal operation after
+safe recovery while preventing relay chatter.
+
+</p>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Major Features</h2>
+
+<div class="grid">
+
+<div class="card">Fully Event Driven Architecture</div>
+
+<div class="card">100% Non Blocking Code</div>
+
+<div class="card">millis() Based Scheduling</div>
+
+<div class="card">4 Cell Voltage Monitoring</div>
+
+<div class="card">Weak Cell Detection</div>
+
+<div class="card">Over Voltage Detection</div>
+
+<div class="card">Sensor Failure Detection</div>
+
+<div class="card">Voltage Spike Detection</div>
+
+<div class="card">Relay Protection Logic</div>
+
+<div class="card">Anti Relay Chatter Protection</div>
+
+<div class="card">Automatic Recovery Logic</div>
+
+<div class="card">LCD Warning System</div>
+
+<div class="card">Buzzer Alert System</div>
+
+<div class="card">Real Time Serial Dashboard</div>
+
+<div class="card">Automotive Safety State Machine</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section dark">
+
+<h2>Safety States</h2>
+
+<div class="status-box">
+
+<span>Normal Operation</span>
+
+<span>Fault Detected</span>
+
+<span>Recovery Mode</span>
+
+<span>System Protected</span>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>System Architecture</h2>
+
+<div class="architecture">
+
+<div>
+4 Potentiometers
+<br>
+<small>Battery Cells</small>
+</div>
+
+<div>
+ESP32 ADC
+</div>
+
+<div>
+Fault Detection
+</div>
+
+<div>
+Event Scheduler
+</div>
+
+<div>
+Safety Kernel
+</div>
+
+<div>
+Relay Controller
+</div>
+
+<div>
+Buzzer Alert
+</div>
+
+<div>
+LCD Warning
+</div>
+
+<div>
+Serial Monitor
+</div>
+
+</div>
+
+</section>
+<section class="section dark">
+
+<h2>Software Modules</h2>
+
+<pre>
+Event-Driven-Safety-Protection-Kernel/
+├── sketch.ino
+├── diagram.json
+├── libraries.txt
+├── README.md
+├── index.html
+├── style.css
+└── script.js
+</pre>
+
+<p>
+The firmware is structured around a safety state machine and independent
+millis()-based software tasks. ADC monitoring, LCD updates, buzzer patterns,
+relay control, and recovery timing run without blocking the main loop.
+</p>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Event Driven Timing</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>ADC Task</h3>
+<p>Reads all four battery cell voltages at fixed intervals using millis().</p>
+</div>
+
+<div class="card">
+<h3>LCD Task</h3>
+<p>Updates system warnings and safety status without using delay().</p>
+</div>
+
+<div class="card">
+<h3>Buzzer Task</h3>
+<p>Generates fault and recovery alerts using non-blocking timing.</p>
+</div>
+
+<div class="card">
+<h3>Recovery Task</h3>
+<p>Waits for stable voltage conditions before allowing relay reconnection.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section dark">
+
+<h2>Fault Detection Logic</h2>
+
+<div class="grid">
+
+<div class="card">Weak Cell Voltage</div>
+
+<div class="card">Over Voltage Condition</div>
+
+<div class="card">Sensor Anomaly</div>
+
+<div class="card">Rapid Voltage Fluctuation</div>
+
+<div class="card">Relay Cutoff Trigger</div>
+
+<div class="card">Safe Recovery Validation</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Protection State Machine</h2>
+
+<div class="architecture">
+
+<div>
+NORMAL
+<br>
+<small>Relay ON</small>
+</div>
+
+<div>
+FAULT
+<br>
+<small>Relay OFF</small>
+</div>
+
+<div>
+RECOVERY
+<br>
+<small>Wait Timer</small>
+</div>
+
+<div>
+NORMAL
+<br>
+<small>Safe Restore</small>
+</div>
+
+</div>
+
+<p>
+The system remains in NORMAL mode during healthy operation. When any unsafe
+event is detected, the controller enters FAULT mode, disconnects the relay,
+activates the buzzer, and displays the fault message. After the fault clears,
+the controller enters RECOVERY mode and waits for a fixed safe interval before
+reconnecting the relay.
+</p>
+
+</section>
+
+
+
+<section class="section dark">
+
+<h2>Live Simulation</h2>
+
+<p>
+The complete ESP32 safety protection kernel can be tested online using Wokwi.
+Adjust the potentiometers to trigger weak-cell, over-voltage, sensor error,
+and rapid fluctuation scenarios.
+</p>
+
+<a class="main-btn" href="https://wokwi.com/projects/468363122006386689" target="_blank">
+Open Wokwi Simulation
+</a>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Sample Serial Output</h2>
+
+<pre>
+EVENT DRIVEN SAFETY KERNEL
+
+Cell 1 : 1.36 V
+Cell 2 : 1.06 V
+Cell 3 : 0.20 V
+Cell 4 : 1.33 V
+
+State        : FAULT
+Relay        : OFF
+Fault Cell   : 3
+Weak Cell    : YES
+Over Voltage : NO
+Sensor Error : NO
+Volt Spike   : NO
+</pre>
+
+</section>
+
+
+
+<section class="section dark">
+
+<h2>LCD Warning Examples</h2>
+
+<div class="grid">
+
+<div class="card">
+SYSTEM SAFE<br>
+Relay ON
+</div>
+
+<div class="card">
+LOW CELL 3<br>
+Relay OFF
+</div>
+
+<div class="card">
+OVERVOLT C2<br>
+Relay OFF
+</div>
+
+<div class="card">
+RECOVERING...<br>
+Wait 4 sec
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Technologies Used</h2>
+
+<div class="grid">
+
+<div class="card">ESP32</div>
+
+<div class="card">Arduino C++</div>
+
+<div class="card">Wokwi Simulator</div>
+
+<div class="card">I2C LCD</div>
+
+<div class="card">Relay Module</div>
+
+<div class="card">Active Buzzer</div>
+
+<div class="card">GitHub</div>
+
+<div class="card">GitHub Pages</div>
+
+</div>
+
+</section>
+<section class="section dark">
+
+<h2>Project Highlights</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>100% Event Driven</h3>
+<p>Entire firmware executes without using delay(), ensuring continuous system responsiveness.</p>
+</div>
+
+<div class="card">
+<h3>Automotive Inspired</h3>
+<p>Designed using safety concepts commonly found in Battery Management Systems and automotive ECUs.</p>
+</div>
+
+<div class="card">
+<h3>Real-Time Protection</h3>
+<p>Detects faults instantly and isolates the battery pack using relay protection.</p>
+</div>
+
+<div class="card">
+<h3>Safe Recovery</h3>
+<p>Automatically restores operation only after voltage conditions become stable.</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="section">
+
+<h2>Project Links</h2>
+
+<div class="buttons">
+
+<a href="https://wokwi.com/projects/468363122006386689" target="_blank">
+🔬 Wokwi Simulation
+</a>
+
+<a href="https://github.com/bikash-cloud/Event-Driven-Safety-Protection-Kernel" target="_blank">
+💻 GitHub Repository
+</a>
+
+</div>
+
+</section>
+
+
+
+<section class="connect">
+
+<h2>Connect With Me</h2>
+
+<div class="connect-links">
+
+<a href="https://www.linkedin.com/in/bikash-swain-b75961322" target="_blank">
+💼 LinkedIn
+</a>
+
+<a href="https://github.com/bikash-cloud" target="_blank">
+💻 GitHub
+</a>
+
+<a href="mailto:swainbikash524@gmail.com">
+📧 Email
+</a>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+<h2>Event-Driven Safety Protection Kernel</h2>
+
+<p>
+Designed & Developed by
+<strong>BIKASH SWAIN</strong>
+</p>
+
+<p>
+B.Tech - Electronics & Communication Engineering
+</p>
+
+<p>
+Embedded Systems • ESP32 • STM32 • IoT • Automotive Embedded Systems
+</p>
+
+<p style="margin-top:20px;">
+© 2026 BIKASH SWAIN. All Rights Reserved.
+</p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
